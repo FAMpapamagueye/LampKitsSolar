@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment/menu.html :: headerfiles">
+
+</head>
+
+<body>
+	<div class="row">
+		<button type="button" class="btn btn-primary col-sm-2" data-mdb-toggle="modal"
+			data-mdb-target="#staticBackdrop">
+			Add Equipement
+		</button>
+		<br>
+		<br>
+		<table class="table table-hover text-nowrap container">
+			<thead>
+				<tr>
+					<th scope="col"></th>
+					<th scope="col">Product Detail Views</th>
+					<th scope="col">Unique Purchases</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Product Revenue</th>
+					<th scope="col">Avg. Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">Value</th>
+					<td>18,492</td>
+					<td>228</td>
+					<td>350</td>
+					<td>$4,787.64</td>
+					<td>$13.68</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+	<div th:replace="fragment/menu.html :: jsfiles">
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Add Equipement</h5>
+					<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<!-- 2 column grid layout with text inputs for the first and last names -->
+						<div class="row mb-4">
+							<div class="col">
+								<!-- Text input -->
+								<div class="form-outline mb-4">
+									<input type="text" id="form6Example4" class="form-control" />
+									<label class="form-label" for="form6Example4">Nom Equipement</label>
+								</div>
+
+								<!-- Email input -->
+								<div class="form-outline mb-4">
+									<input type="number" id="form6Example5" class="form-control" />
+									<label class="form-label" for="form6Example5">puissance</label>
+								</div>
+
+								<!-- Number input -->
+								<div class="form-outline mb-4">
+									<input type="number" id="form6Example6" class="form-control" />
+									<label class="form-label" for="form6Example6">nombre d'heure d'utilisation</label>
+								</div>
+
+								<!-- Message input -->
+								<div class="form-outline mb-4">
+									<input type="number" id="form6Example6" class="form-control" />
+									<label class="form-label" for="form6Example7">nombre d'equipement</label>
+								</div>
+
+								<!-- Submit button -->
+								<!--  <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>-->
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-mdb-dismiss="modal">Annuler</button>
+								<button type="button" class="btn btn-primary">Add Equipement</button>
+
+							</div>
+
+					</form>
+					<div th:replace="fragment/menu.html :: jsfiles">
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+</body>
+
+</html>

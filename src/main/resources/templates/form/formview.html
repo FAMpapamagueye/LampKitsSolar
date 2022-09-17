@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment/menu.html :: headerfiles">
+
+</head>
+
+<body>
+	<div class="row">
+		<table class="table table-hover text-nowrap">
+			<thead>
+				<tr class="col-sm-3">
+					<button type="button" class="btn btn-primary col-sm-3" data-mdb-toggle="modal"
+						data-mdb-target="#staticBackdrop">
+						Add Equipement
+					</button>
+				</tr>
+				<tr>
+					<th scope="col"></th>
+					<th scope="col">Product Detail Views</th>
+					<th scope="col">Unique Purchases</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Product Revenue</th>
+					<th scope="col">Avg. Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">Value</th>
+					<td>18,492</td>
+					<td>228</td>
+					<td>350</td>
+					<td>$4,787.64</td>
+					<td>$13.68</td>
+				</tr>
+				
+			</tbody>
+		</table>
+
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+					<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">...</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Understood</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="fragment/menu.html :: jsfiles">
+	</div>
+
+</body>
+
+</html>
