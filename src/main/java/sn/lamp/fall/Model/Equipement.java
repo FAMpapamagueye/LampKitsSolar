@@ -1,20 +1,22 @@
 package sn.lamp.fall.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Entity
 public class Equipement {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String equipement;
 	private int nombre;
 	private int puissance;
 	private int nombreHeureUtilisation;
+	private Long client_id;
 	public long getId() {
 		return id;
 	}
@@ -45,6 +47,14 @@ public class Equipement {
 	public void setNombreHeureUtilisation(int nombreHeureUtilisation) {
 		this.nombreHeureUtilisation = nombreHeureUtilisation;
 	}
+	public Long getClient_id() {
+		return client_id;
+	}
+	public void setClient_id(Long client_id) {
+		this.client_id = client_id;
+	}
+	
+	
 	
 
 }

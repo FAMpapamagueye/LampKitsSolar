@@ -5,7 +5,7 @@
 
 </head>
 
-<body class="container-fluid" style="background-color:grey">
+<body class="container-fluid" style="background-color:rgb(255, 255, 255)">
 	<nav class="container-fluid navbar navbar-expand-lg navbar-light">
 		<!-- Container wrapper -->
 		<div class="container-fluid">
@@ -28,7 +28,7 @@
 
 					<li class="nav-item"><a class="nav-link" href="#service">Accueil</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#contacts">Clients</a>
+					<li class="nav-item"><a class="nav-link" th:href="@{/admin/client}">Clients</a>
 					</li>
 				</ul>
 				<!-- Left links -->
@@ -38,14 +38,14 @@
 			<!-- Right elements -->
 			<div class="d-flex align-items-center">
 				<!-- Icon -->
-				<a class="text-reset me-3" href="#"> <!-- <i class="fas fa-shopping-cart"></i> -->
+				<a class="text-reset me-3" href="#"> <i class="fas fa-shopping-cart"></i>
 				</a>
 
 				<!-- Notifications -->
 				<div class="dropdown">
 					<a class="text-reset me-3 dropdown-toggle hidden-arrow"
 						th:href="@{/login}" id="navbarDropdownMenuLink" role="button"
-						data-mdb-toggle="dropdown" aria-expanded="false"> Profil
+						data-mdb-toggle="dropdown" aria-expanded="false" th:text="@{${user_id.prenom}+' '+${user_id.nom}}"> Profil
 						<span class="badge rounded-pill badge-notification bg-danger"></span>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-end"
@@ -88,33 +88,66 @@
 	<br>
 	<br>
 	<br>
-	<div class="row">
+	<div class="row container" >
 		<button type="button" class="btn btn-primary col-sm-2"
 			data-mdb-toggle="modal" data-mdb-target="#staticBackdrop">
-			Add Equipement</button>
+			Add Clients</button>
 		<br> <br>
-		<table class="table table-hover text-nowrap container">
+		<table class="table table-hover text-nowrap " id="tabsous">
 			<thead>
 				<tr>
-					<th scope="col"></th>
-					<th scope="col">Product Detail Views</th>
-					<th scope="col">Unique Purchases</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Product Revenue</th>
-					<th scope="col">Avg. Price</th>
+					<th scope="col">nom</th>
+					<th scope="col">Prenom</th>
+					<th scope="col">Email</th>
+					<th scope="col">Telephone</th>
+					<th scope="col">plus</th>
+					
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">Value</th>
-					<td>18,492</td>
-					<td>228</td>
-					<td>350</td>
-					<td>$4,787.64</td>
-					<td>$13.68</td>
+				<tr th:each="cli:${clients}">
+					<th  th:text="${cli.nom}">fam</th>
+					<td th:text="${cli.prenom}">lamp</td>
+					<td ><a th:href="@{'mailto:'+${cli.email}}">admin@gmail.com</a></td>
+				    <td  th:text="${cli.telephone}">771234567</td>
+					<td><a th:href="@{/admin/client/{id}(id=${cli.id})}" class="btn btn-outline-primary">dimennsionnement</a>&nbsp;&nbsp;&nbsp;
+					<a th:href="@{/admin/devis/{id}(id=${cli.id})}" class="btn btn-outline-primary">Devis</a>&nbsp;&nbsp;&nbsp;
+					<a  th:href="@{/admin/rapport/{id}(id=${cli.id})}" class="btn btn-outline-primary">Rapport</a>
+					</td>
+					
 				</tr>
 
 			</tbody>
+			<script>
+					$(document)
+							.ready(
+									function() {
+										$('#tabsous')
+												.DataTable(
+														{
+															"searching" : true,
+															"info" : false,
+															"bLengthChange" : false,
+															"pageLength" : 10,
+															"language" : {
+																"sEmptyTable" : "Aucune donnée disponible dans le tableau",
+																"sInfoPostFix" : "",
+																"sInfoThousands" : ",",
+																"oPaginate" : {
+																	"sNext" : "Suivant",
+																	"sPrevious" : "Précédent"
+																}
+															},
+															"aaSorting" : [],
+															columnDefs : [ {
+																orderable : false,
+																targets : 4
+															} ]
+														});
+										$('.dataTables_length').addClass(
+												'bs-select');
+									});
+				</script>
 		</table>
 
 	</div>
@@ -128,40 +161,43 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="staticBackdropLabel">Add
-						Equipement</h5>
+						Clients</h5>
 					<button type="button" class="btn-close" data-mdb-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form method="post" th:action="@{/admin/client}" th:object="${client}">
 						<!-- 2 column grid layout with text inputs for the first and last names -->
 						<div class="row mb-4">
 							<div class="col">
 								<!-- Text input -->
 								<div class="form-outline mb-4">
-									<input type="text" id="form6Example4" class="form-control" />
+									<input type="text" id="form6Example4" th:field="*{nom}" class="form-control" />
 									<label class="form-label" for="form6Example4">Nom
-										Equipement</label>
+										</label>
 								</div>
 
 								<!-- Email input -->
 								<div class="form-outline mb-4">
-									<input type="number" id="form6Example5" class="form-control" />
-									<label class="form-label" for="form6Example5">puissance</label>
+									<input type="text" id="form6Example5"  th:field="*{prenom}" class="form-control" />
+									<label class="form-label" for="form6Example5">prenom</label>
 								</div>
 
 								<!-- Number input -->
 								<div class="form-outline mb-4">
-									<input type="number" id="form6Example6" class="form-control" />
-									<label class="form-label" for="form6Example6">nombre
-										d'heure d'utilisation</label>
+									<input type="text" id="form6Example6"  th:field="*{email}" class="form-control" />
+									<label class="form-label" for="form6Example6">email</label>
 								</div>
 
 								<!-- Message input -->
 								<div class="form-outline mb-4">
-									<input type="number" id="form6Example6" class="form-control" />
-									<label class="form-label" for="form6Example7">nombre
-										d'equipement</label>
+									<input type="text" id="form6Example6"  th:field="*{telephone}" class="form-control" />
+									<label class="form-label" for="form6Example7">Telephone</label>
+								</div>
+								<!-- Message input -->
+								<div class="form-outline mb-4">
+									<input type="hidden" id="user_id"   name="user_id" th:value="${user_id.id}" />
+									<!-- <label class="form-label" for="form6Example7" th:text="@{${user_id.id}}">Telephone</label> -->
 								</div>
 
 								<!-- Submit button -->
@@ -171,15 +207,19 @@
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary"
 									data-mdb-dismiss="modal">Annuler</button>
-								<button type="button" class="btn btn-primary">Add
-									Equipement</button>
+								<button type="submit" class="btn btn-primary">Add
+									Client</button>
 
+							</div>
 							</div>
 					</form>
 					<!-- <div th:replace="fragment/menu.html :: jsfiles"></div> -->
 				</div>
 			</div>
 		</div>
+		</div>
+	
+	
 			<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
 </body>

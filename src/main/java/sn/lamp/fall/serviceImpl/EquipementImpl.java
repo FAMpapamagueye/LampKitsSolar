@@ -3,11 +3,12 @@ package sn.lamp.fall.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import sn.lamp.fall.DAO.EquipementRepository;
 import sn.lamp.fall.Model.Equipement;
 import sn.lamp.fall.service.EquipementService;
-
+@Service
 public class EquipementImpl implements EquipementService {
 @Autowired
   private EquipementRepository equipementRepository;
@@ -40,6 +41,12 @@ public class EquipementImpl implements EquipementService {
 	public Equipement findById(Long id) {
 		
 		return equipementRepository.findById(id).get();
+	}
+
+	@Override
+	public List<Equipement> findByListId(Long id) {
+		// TODO Auto-generated method stub
+		return equipementRepository.findByListId(id);
 	}
 
 }
