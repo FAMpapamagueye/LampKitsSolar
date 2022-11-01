@@ -15,7 +15,7 @@ public class Constant {
 	public static String EQUIPEMENTS = "Equipements";
 	public static String DEVI = "devi";
 	public static String DEVIS = "devis";
-
+    public static double TOTAL=0;
 	public static double Puissance_onduleur(List<Equipement> E) {
 		double PT = 0;
 		for (Equipement equi : E) {

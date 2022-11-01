@@ -1,6 +1,7 @@
 package sn.lamp.fall.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
@@ -165,10 +166,20 @@ public class AdminController {
 		System.out.print(C1.getId());
 		Devis devi=new  Devis();
 		List<Devis> devis=devisService.findByListId(id);
+		List<Equipement> Equipements=equipementService.findByListId(id);
+//	double totalL=devis.stream().collect(Collectors.summingInt((e.getPrixUnitaire()*e.getQuantite())));
+//		Constant.TOTAL=0;
+		for (Devis dev : devis) {
+			Constant.TOTAL+=dev.getPrixUnitaire()*dev.getQuantite();
+		}
+		
 		M.addAttribute("client", C1);
 		M.addAttribute(Constant.SESSION_ID_UTILISATEUR ,user);
+		M.addAttribute(Constant.EQUIPEMENTS,Equipements);
 		M.addAttribute(Constant.DEVI,devi);	
 		M.addAttribute(Constant.DEVIS,devis);
+		M.addAttribute("TOTAL",Constant.TOTAL);
+		Constant.TOTAL=0;
 		return "rapport/index";
 	}
 }

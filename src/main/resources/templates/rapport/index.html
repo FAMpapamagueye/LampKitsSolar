@@ -6,21 +6,22 @@
 </head>
 <style>
 .invoice-title h2, .invoice-title h3 {
-    display: inline-block;
+	display: inline-block;
 }
 
-.table > tbody > tr > .no-line {
-    border-top: none;
+.table>tbody>tr>.no-line {
+	border-top: none;
 }
 
- .table > thead > tr > .no-line {
-    border-bottom: none;
-} 
+.table>thead>tr>.no-line {
+	border-bottom: none;
+}
 /* .table > tbody > tr > .thick-line {
     border-top: 2px solid;
 } */
 </style>
-<body class="container-fluid" style="background-color:rgb(255, 255, 255)">
+<body class="container-fluid"
+	style="background-color: rgb(255, 255, 255)">
 	<nav class="container-fluid navbar navbar-expand-lg navbar-light">
 		<!-- Container wrapper -->
 		<div class="container-fluid">
@@ -53,15 +54,17 @@
 			<!-- Right elements -->
 			<div class="d-flex align-items-center">
 				<!-- Icon -->
-				<a class="text-reset me-3" href="#"> <i class="fas fa-shopping-cart"></i>
+				<a class="text-reset me-3" href="#"> <i
+					class="fas fa-shopping-cart"></i>
 				</a>
 
 				<!-- Notifications -->
 				<div class="dropdown">
 					<a class="text-reset me-3 dropdown-toggle hidden-arrow"
 						th:href="@{/login}" id="navbarDropdownMenuLink" role="button"
-						data-mdb-toggle="dropdown" aria-expanded="false" th:text="@{${user_id.prenom}+' '+${user_id.nom}}"> Profil
-						<span class="badge rounded-pill badge-notification bg-danger"></span>
+						data-mdb-toggle="dropdown" aria-expanded="false"
+						th:text="@{${user_id.prenom}+' '+${user_id.nom}}"> Profil <span
+						class="badge rounded-pill badge-notification bg-danger"></span>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-end"
 						aria-labelledby="navbarDropdownMenuLink">
@@ -75,155 +78,147 @@
 					</ul>
 				</div>
 				<!-- Avatar -->
-							<div class="dropdown">
-						<a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
-							id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
-							aria-expanded="false">
-							<img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
-								height="25" alt="Black and White Portrait of a Man" loading="lazy" />
-						</a>
-						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-					<li>
-								<a class="dropdown-item" href="#">My profile</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Settings</a>
-							</li>
-				
-							<li>
-								<a class="dropdown-item" href="#">Logout</a>
-							</li>
-						</ul>
-					</div>
+				<div class="dropdown">
+					<a class="dropdown-toggle d-flex align-items-center hidden-arrow"
+						href="#" id="navbarDropdownMenuAvatar" role="button"
+						data-mdb-toggle="dropdown" aria-expanded="false"> <img
+						src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+						class="rounded-circle" height="25"
+						alt="Black and White Portrait of a Man" loading="lazy" />
+					</a>
+					<ul class="dropdown-menu dropdown-menu-end"
+						aria-labelledby="navbarDropdownMenuAvatar">
+						<li><a class="dropdown-item" href="#">My profile</a></li>
+						<li><a class="dropdown-item" href="#">Settings</a></li>
+
+						<li><a class="dropdown-item" href="#">Logout</a></li>
+					</ul>
 				</div>
-				<!-- Right elements -->
 			</div>
-			<!-- Container wrapper -->
+			<!-- Right elements -->
+		</div>
+		<!-- Container wrapper -->
 	</nav>
 	<br>
 	<br>
 	<br>
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+	<link
+		href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+		rel="stylesheet" id="bootstrap-css">
+	<script
+		src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!------ Include the above in your HEAD tag ---------->
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-    		<div class="invoice-title">
-    			<h2>Rapport</h2><h3 class="pull-right"> By Energeticien  N : <span th:text="@{${user_id.prenom}+' '+${user_id.nom}}"></span></h3>
-    		</div>
-    		<hr>
-    		<div class="row">
-    			<div class="col-xs-6">
-    				<address>
-    				<strong>Information client:</strong><br>
-    					prenom & Nom : coumba Sow<br>
-    					Telephone : 771234567<br>
-    					email: csow2945@gmail.com
-    				</address>
-    			</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-xs-6">
-    				<address>
-    					<strong>Payment Method:</strong><br>
-    					wave<br>
-    					&<br>
-    					orange money: 771234567
-    				</address>
-    			</div>
-    			<div class="col-xs-6 text-right">
-    				<address>
-    					<strong>Date:</strong><br>
-    					21 October, 2022<br><br>
-    				</address>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-    
-    <div class="row">
-    	<div class="col-md-12">
-    		<div class="panel panel-default">
-    			<div class="panel-heading">
-    				<h3 class="panel-title"><strong>Order summary</strong></h3>
-    			</div>
-    			<div class="panel-body">
-    				<div class="table-responsive">
-    					<table class="table table-striped">
-    						<thead class="thead-dark">
-                                <tr>
-        							<td><strong>Item</strong></td>
-        							<td scope="col"><strong>Price</strong></td>
-        							<td scope="col"><strong>Quantity</strong></td>
-        							<td scope="col"><strong>Totals</strong></td>
-                                </tr>
-    						</thead>
-    						<tbody>
-    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
-    							<tr>
-    								<td>climatiseur</td>
-    								<td scope="col">10000</td>
-    								<td scope="col">1</td>
-    								<td scope="col">10000</td>
-    							</tr>
-                                <tr>
-        							<td>televiseur</td>
-    								<td scope="col">225000</td>
-    								<td scope="col">3</td>
-    								<td scope="col">657000</td>
-    							</tr>
-                                <tr>
-            						<td scope="col">frigo</td>
-    								<td scope="col">600000</td>
-    								<td scope="col">1</td>
-    								<td scope="col">600.00</td>
-    							</tr>
-    							<tr>
-    								<td ></td>
-    								<td ></td>
-    								<td ><strong>Subtotal</strong></td>
-    								<td >7M</td>
-    							</tr>
-    							<!-- <tr>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="invoice-title">
+					<h2>Rapport</h2>
+					<h3 class="pull-right">
+						By Energeticien N : <span
+							th:text="@{${user_id.prenom}+' '+${user_id.nom}}"></span>
+					</h3>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-6">
+						<address>
+							<strong>Information client:</strong><br> prenom & Nom :
+							coumba Sow<br> Telephone : 771234567<br> email:
+							csow2945@gmail.com
+						</address>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<address>
+							<strong>Payment Method:</strong><br> wave<br> &<br>
+							orange money: 771234567
+						</address>
+					</div>
+					<div class="col-xs-6 text-right">
+						<address>
+							<strong>Date:</strong><br> 21 October, 2022<br>
+							<br>
+						</address>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<strong>Order summary</strong>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead class="thead-dark">
+									<tr>
+										<td><strong>Item</strong></td>
+										<td scope="col"><strong>Price</strong></td>
+										<td scope="col"><strong>Quantity</strong></td>
+										<td scope="col"><strong>Totals</strong></td>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- foreach ($order->lineItems as $line) or some such thing here -->
+									<tr th:each="cli:${devis}">
+										<th th:text="${cli.libelle}">fam</th>
+										<td th:text="${cli.quantite}">lamp</td>
+										<td th:text="@{${cli.prixUnitaire}+''+' F CFA'}"></td>
+										<td th:text="@{${cli.prixUnitaire}*${cli.quantite}}"></td>
+									<tr>
+										<td></td>
+										<td></td>
+										<td><strong>Subtotal</strong></td>
+										<td th:text="@{${TOTAL}}">7M</td>
+									</tr>
+									<!-- <tr>
     								<td class="no-line"></td>
     								<td class="no-line"></td>
     								<td class="no-line text-center" scope="col"><strong>Shipping</strong></td>
     								<td class="no-line text-right" scope="col">$15</td>
     							</tr> -->
-    							<!-- <tr>
+									<!-- <tr>
     								<td class="no-line"></td>
     								<td class="no-line"></td>
     								<td class="no-line text-center"><strong>Total</strong></td>
     								<td class="no-line text-right">6M</td>
     							</tr> -->
-    							<tr>
-    								<td class="thick-line"></td>
-    								<td class="thick-line"></td>
-    								<td class="thick-line text-center"><strong>Puissance onduleur</strong></td>
-    								<td class="thick-line text-right">120w</td>
-    							</tr>
-    							<tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line text-center" scope="col"><strong>Puissance Pv </strong></td>
-    								<td class="no-line text-right" scope="col">88,8</td>
-    							</tr>
-    							<tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line text-center"><strong>Nombre de batterie</strong></td>
-    								<td class="no-line text-right">12</td>
-    							</tr>
-    						</tbody>
-    					</table>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-</div>
-	</body>
-	</html>
+									<tr>
+										<td class="thick-line"></td>
+										<td class="thick-line"></td>
+										<td class="thick-line text-center"><strong>Puissance
+												onduleur</strong></td>
+										<td class="thick-line text-right">120w</td>
+									</tr>
+									<tr>
+										<td class="no-line"></td>
+										<td class="no-line"></td>
+										<td class="no-line text-center" scope="col"><strong>Puissance
+												Pv </strong></td>
+										<td class="no-line text-right" scope="col">88,8</td>
+									</tr>
+									<tr>
+										<td class="no-line"></td>
+										<td class="no-line"></td>
+										<td class="no-line text-center"><strong>Nombre
+												de batterie</strong></td>
+										<td class="no-line text-right">12</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
